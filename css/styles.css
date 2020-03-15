@@ -1,0 +1,291 @@
+/* ------------------------------*/
+/* Password Generator            */
+/* Created by: EGavilan Media    */
+/* http://www.egavilanmedia.com  */
+/* ------------------------------*/
+
+/* ------------------------- */
+/* General Styles            */
+/* ------------------------- */
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+}
+
+*::selection {
+	background:#33257E ;
+	color:#fff;
+}
+
+*::-moz-selection {
+	background:#33257E;
+	color:#fff;
+}
+
+body {
+	background: #eef4eb;
+	color: #073863;
+}
+
+a {
+	color: #073863;
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.container {
+	max-width:500px;
+	width: 90%;
+	margin: 40px auto;
+}
+
+
+/* ------------------------- */
+/* Logo                      */
+/* ------------------------- */
+.title {
+	margin-bottom: 40px;
+	width: 100%;
+	text-align: center;
+}
+
+.title img {
+	width: 100%;
+	vertical-align: top;
+ }
+
+ .logo {
+	text-align: center;
+}
+
+.logo img {
+	width: 30%;
+ }
+
+/* ------------------------- */
+/* Row and Column Styles */
+/* ------------------------- */
+.app .row {
+	margin-bottom: 40px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.app .col {
+	width: 50%;
+}
+
+/* ------------------------------------ */
+/* General styles of inputs and buttons */
+/* ------------------------------------ */
+.app label {
+	line-height: 40px;
+}
+
+.app input {
+	text-align: center;
+	border: none;
+}
+
+.app .btn {
+	width: 100%;
+	background: #073863;
+	color: #fff;
+	display: inline-block;
+	height: 40px;
+	vertical-align: top;
+	font-size: 16px;
+	text-align: center;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all .3s ease;
+}
+
+.app .btn:hover {
+	background: #0f75cf;
+}
+
+.app .btn.false{
+	background: #084174;
+}
+
+/* ------------------------- */
+/* row: Password Length      */
+/* ------------------------- */
+.app .password-length .buttons div {
+	width: 100%;
+}
+
+.app .password-length .buttons div:nth-child(1) button{
+	border-radius: 4px 0 0 4px;
+}
+.app .password-length input {
+	height: 40px;
+	width: 100%;
+	cursor: default;
+	background: #084174;
+	color: #fff;
+}
+.app .password-length .buttons div:nth-child(3) button{
+	border-radius: 0 4px 4px 0;
+}
+
+.app .password-length .buttons{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+/* ------------------------- */
+/* row: generate password    */
+/* ------------------------- */
+.app .row.generate {
+	margin-bottom: 10px;
+}
+
+.app .row.generate .col:nth-child(1){
+	width: 30%;
+}
+
+.app .row.generate .col:nth-child(2) {
+	width: 65%;
+}
+
+.app .row.generate .btn.btn-generate {
+	width: 100%;
+	height: 40px;
+	font-size: 18px;
+	padding: 0;
+	line-height: 40px;
+	position: relative;
+	z-index: 1;
+}
+
+.app .row.generate .btn.btn-generate i {
+	margin-left: 20px;
+	position: relative;
+	top:-1px;
+	font-size: 14px;
+}
+
+.app .row.generate .btn.btn-generate:after {
+	content: "";
+	display: inline-block;
+	background: #073863;
+	width: 14px;
+	height: 14px;
+	position: absolute;
+	top:13px;
+	right:-7px;
+	transform: rotate(45deg);
+	z-index: 9;
+	transition: all .3s ease;
+}
+
+.app .row.generate .col:nth-child(1):hover .btn-generate:after {
+	background: #0f75cf;
+}
+
+.app .row.generate .input-password {
+	width: 100%;
+	background: none;
+	border-radius: 4px;
+	border:1px solid rgba(2,57,99);
+	color: #073863;
+	height: 40px;
+	line-height: 40px;
+	cursor: pointer;
+	transition: all .3s ease;
+}
+
+.app .row.generate .input-password:hover {
+	border:1px solid rgba(15, 117, 207);
+}
+
+.app .row.generate input::selection {
+	background: #212139;
+}
+
+.app .row.generate input::-moz-selection {
+	background: #212139;
+}
+
+/* ------------------------- */
+/* row: alert                */
+/* ------------------------- */
+.app .row.alert {
+	justify-content: flex-end;
+}
+
+.app .row.alert .col {
+	width: 65%;
+}
+.app .row.alert .alert-copied {
+	text-align: center;
+	color: rgba(255,255,255,0);
+	transition: all .3s ease;
+}
+
+.app .row.alert .alert-copied.active {
+	color: rgb(7, 56, 99);
+}
+
+.app .row.alert .alert-copied p,
+.app .row.alert .alert-copied i {
+	font-size: 12px;
+}
+
+/* ------------------------- */
+/* Media Queries             */
+/* ------------------------- */
+@media screen and (max-width: 500px){
+	.logo img {
+		width: 70%;
+	}
+
+	.app .row {
+		flex-direction: column;
+		margin-bottom: 20px;
+	}
+
+	.app .row .col {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	.app .row.generate {
+		border-top:1px solid rgba(255,255,255,.25);
+		padding-top:40px;
+	}
+
+	.app .row.generate .col:nth-child(1),
+	.app .row.generate .col:nth-child(2) {
+		width: 100%;
+	}
+
+	.app .row.generate .btn.btn-generate:after {
+		top: auto;
+		left: 50%;
+		right: 50%;
+		bottom: -7px;
+	}
+}
+
+/* ------------------------- */
+/* credits                   */
+/* ------------------------- */
+.credits {
+	text-align: center;
+}
+
+.credits p, a {
+	font-size: 14px;
+}
